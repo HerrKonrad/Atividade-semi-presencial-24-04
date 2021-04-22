@@ -2,15 +2,15 @@
 #include <stdlib.h>
 #include <math.h>
 
-/* Algoritmos e Programação - 2021/1
+/* Algoritmos e ProgramaÃ§Ã£o - 2021/1
  * Atividade Semipresencial 24/4
  * Nome: Arthur Konrad
- * Atenção: Este código é apenas um desafio pessoal para tentar implementar uma forma de calcular com uma quantidade quase ilimitada de numeros
- * sem precisar mexer no código. Farei a atividade da forma normal com meu grupo.
+ * AtenÃ§Ã£o: Este cÃ³digo Ã© apenas um desafio pessoal para tentar implementar uma forma de calcular com uma quantidade quase ilimitada de numeros
+ * sem precisar mexer no cÃ³digo. Farei a atividade da forma normal com meu grupo.
  */
 
 
-//Esta função não é minha. Ela serve para ordenar o array de double
+//Esta funÃ§Ã£o nÃ£o Ã© minha. Ela serve para ordenar o array de double
 static int compare (const void * a, const void * b)
 {
     if (*(double*)a > *(double*)b) return 1;
@@ -76,8 +76,29 @@ size_t pedirQuantidadeNumeros()
 {
     size_t qtd;
     puts("Quantos numeros deseja inserir: ");
-    scanf("%zu", &qtd);
+
+    if(! scanf("%zu", &qtd) )
+    {
+        puts("Digitacao incorreta. Apenas numeros decimais sao permitidos");
+        while(fgetc(stdin)!='\n');
+        qtd = pedirQuantidadeNumeros();
+    }
+
     return qtd;
+}
+
+double pedirNumero()
+{
+    double temp = 0.0;
+
+    puts("# Digite um numero: ");
+    if( ! scanf("%lf", &temp) )
+    {
+        puts("Digitacao incorreta. Apenas numeros decimais com ou sem ponto");
+        while(fgetc(stdin)!='\n');
+        temp = pedirNumero();
+    }
+    return temp;
 }
 
 main()
@@ -92,13 +113,10 @@ main()
     double media_geometrica = 0.0;
     double media_harmonica = 0.0;
 
-    for( i = 0 ; i < quantidade ; i++) //Pede uma quantidade x de numeros, de acordo com o determinado pela variável "quantidade"
+    for( i = 0 ; i < quantidade ; i++) //Pede uma quantidade x de numeros, de acordo com o determinado pela variÃ¡vel "quantidade"
 
     {
-        double temp = 0.0;
-        puts("# Digite um numero: ");
-        scanf("%lf", &temp);
-        valores[i] = temp;
+        valores[i] = pedirNumero();
     }
 
     qsort(valores, quantidade, sizeof(double), compare); //Ordena em ordem crescente nosso array
