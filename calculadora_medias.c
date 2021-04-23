@@ -9,7 +9,6 @@
  * sem precisar mexer no código. Farei a atividade da forma normal com meu grupo.
  */
 
-
 //Esta função não é minha. Ela serve para ordenar o array de double
 static int compare (const void * a, const void * b)
 {
@@ -83,7 +82,6 @@ size_t pedirQuantidadeNumeros()
         while(fgetc(stdin)!='\n');
         qtd = pedirQuantidadeNumeros();
     }
-
     return qtd;
 }
 
@@ -104,7 +102,6 @@ double pedirNumero()
 main()
 {
     size_t quantidade = pedirQuantidadeNumeros();
-    size_t  ler_quantidade;
     double valores[quantidade];
     size_t i;
     double maior_valor = 0.0;
@@ -114,7 +111,6 @@ main()
     double media_harmonica = 0.0;
 
     for( i = 0 ; i < quantidade ; i++) //Pede uma quantidade x de numeros, de acordo com o determinado pela variável "quantidade"
-
     {
         valores[i] = pedirNumero();
     }
