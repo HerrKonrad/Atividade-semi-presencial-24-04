@@ -131,7 +131,7 @@ main()
 
     printf("Maior valor: %lf \n", maior_valor);
     printf("Menor valor: %lf \n", menor_valor);
-    printf("%Media aritmetica: %.1lf \n", media_aritmetica);
+    printf("Media aritmetica: %.1lf \n", media_aritmetica);
     printf("Media geometrica: %.2lf \n", media_geometrica);
     printf("Media harmonica: %.3lf \n", media_harmonica);
 }
