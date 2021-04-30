@@ -66,7 +66,6 @@ double fazerMediaAritmetica(double numeros[], size_t quantidade)
     {
         soma += numeros[i];
     }
-
     resultado = soma / quantidade;
     return resultado;
 }
@@ -74,14 +73,21 @@ double fazerMediaAritmetica(double numeros[], size_t quantidade)
 size_t pedirQuantidadeNumeros()
 {
     size_t qtd;
+    long temp = 0;
     puts("Quantos numeros deseja inserir: ");
 
-    if(! scanf("%zu", &qtd) )
+    if(! scanf("%ld", &temp) )
     {
         puts("Digitacao incorreta. Apenas numeros decimais sao permitidos");
         while(fgetc(stdin)!='\n');
         qtd = pedirQuantidadeNumeros();
     }
+    if( temp <= 0)
+    {
+        puts("Digitacao incorreta. Apenas numeros maiores de zero sao permitidos");
+        qtd = pedirQuantidadeNumeros();
+    }
+    qtd = (size_t) temp;
     return qtd;
 }
 
