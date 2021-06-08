@@ -111,7 +111,7 @@ double pedirNumero()
 main()
 {
     size_t quantidade = pedirQuantidadeNumeros();
-    double valores[quantidade];
+    double* valores = (double*) malloc(quantidade);
     size_t i;
     double maior_valor = 0.0;
     double menor_valor = 0.0;
@@ -127,7 +127,7 @@ main()
     qsort(valores, quantidade, sizeof(double), compare); //Ordena em ordem crescente nosso array
 
 
-   //Fazemos os calculos chamando as devidas funções	
+   //Fazemos os calculos chamando as devidas funções
     maior_valor = valores[quantidade-1];
     menor_valor = valores[0];
     media_aritmetica = fazerMediaAritmetica(valores, quantidade);
